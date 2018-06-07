@@ -4,7 +4,7 @@ Implementação da máquina de Turing
 
 ## Funcionamento
 
-
+![Alt text](Maquina de Turing.astah)
 
 ## License
 
