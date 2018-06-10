@@ -2,11 +2,8 @@
 
 namespace MaquinaDeTuring\domain;
 
-use MaquinaDeTuring\app\utils\Log;
-
-class Fita implements Log
+class Fita
 {
-    private $log = [];
     private $posicao;
     private $celulas;
 
@@ -31,20 +28,11 @@ class Fita implements Log
 
     public function escrever(Simbolo $simbolo)
     {
-        $this->log[] = [
-            'posicao' => $this->posicao,
-            'simbolo' => $simbolo->nome()
-        ];
         $this->celulas[$this->posicao] = $simbolo;
     }
 
-    public function simboloAtual()
+    public function simboloAtual(): Simbolo
     {
         return $this->celulas[$this->posicao];
-    }
-
-    public function getLog()
-    {
-        return $this->log;
     }
 }
