@@ -26,9 +26,8 @@ class MaquinaDeTuring implements Log
         if($acao->proximoEstado()->deveParar()){
             return $acao->proximoEstado()->isValido();
         } else {
-            $this->validar();
+            return $this->validar();
         }
-        return true;
     }
 
     private function executarAcao(Acao $acao){

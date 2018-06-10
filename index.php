@@ -20,7 +20,10 @@ $app->post('/maquina-de-turing', function (Request $request, Response $response,
 
 $app->get('/teste', function (Request $request, Response $response, array $args) {
     $json = file_get_contents(__DIR__.'/test/arquivos/soma.json');
-    return (new MaquinaDeTuringController())->verificarFita($json);
+    $resultado = (new MaquinaDeTuringController())->verificarFita($json);
+    return '{"jsonRecebido":'.$json.
+        ',"jsonRetornado":'.$resultado
+        .'}';
 });
 
 try {
