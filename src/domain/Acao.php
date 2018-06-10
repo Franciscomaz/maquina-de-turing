@@ -8,25 +8,25 @@ class Acao
     private $estado;
     private $simbolo;
 
-    public function __construct(Estado $estado, Simbolo $simbolo, $direcao)
+    public function __construct(Estado $estado, Simbolo $simbolo, int $direcao)
     {
         $this->direcao = $direcao;
         $this->estado = $estado;
         $this->simbolo = $simbolo;
     }
 
-    public function proximoEstado()
+    public function direcao(): int
     {
-        return $this->estado;
+        return $this->direcao;
     }
 
-    public function novoSimbolo()
+    public function simbolo(): Simbolo
     {
         return $this->simbolo;
     }
 
-    public function direcao()
+    public function proximoEstado(): Estado
     {
-        return $this->direcao;
+        return $this->estado;
     }
 }
