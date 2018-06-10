@@ -8,7 +8,8 @@ class MaquinaDeTuringTest extends PHPUnit\Framework\TestCase
     {
         $conteudoJson = file_get_contents(__DIR__.'/arquivos/soma.json');
         $json = (new MaquinaDeTuringController())->verificarFita($conteudoJson);
-        print_r($json);
-        die;
+        $arrayAssociativo = json_decode($json, true);
+        print_r($arrayAssociativo);
+        $this->assertEquals(true, $arrayAssociativo['isValido']);
     }
 }
