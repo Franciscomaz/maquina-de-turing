@@ -2,7 +2,7 @@
 
 namespace MaquinaDeTuring\app\factories;
 
-use MaquinaDeTuring\MaquinaDeTuring;
+use MaquinaDeTuring\domain\MaquinaDeTuring;
 
 class MaquinaDeTuringFactory
 {

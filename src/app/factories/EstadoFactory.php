@@ -2,14 +2,14 @@
 
 namespace MaquinaDeTuring\app\factories;
 
-use MaquinaDeTuring\Estado;
-use MaquinaDeTuring\EstadoDeParada;
+use MaquinaDeTuring\domain\Estado;
+use MaquinaDeTuring\domain\EstadoDeParada;
 
 class EstadoFactory
 {
     public static function criar($estado)
     {
-        if($estado['final']){
+        if($estado['deveParar']){
             return new EstadoDeParada($estado['nome'], $estado['aceitar']);
         } else {
             return new Estado($estado['nome']);

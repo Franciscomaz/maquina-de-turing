@@ -1,6 +1,6 @@
 <?php
 
-namespace MaquinaDeTuring;
+namespace MaquinaDeTuring\domain;
 
 
 use MaquinaDeTuring\app\utils\Log;
@@ -21,9 +21,9 @@ class TabelaDeAcoes implements Log
         $this->estadoAtual = $estadoInicial;
     }
 
-    public function adicionarAcao(Acao $acao): self
+    public function adicionarAcao(Acao $acao, Estado $estado, Simbolo $simbolo): self
     {
-        $this->acoes[$this->coordenadaX($acao->simbolo())][$this->coordenadaY($acao->proximoEstado())] = $acao;
+        $this->acoes[$this->coordenadaX($simbolo)][$this->coordenadaY($estado)] = $acao;
         return $this;
     }
 

@@ -2,8 +2,8 @@
 
 namespace MaquinaDeTuring\app\factories;
 
-use MaquinaDeTuring\Fita;
-use MaquinaDeTuring\Simbolo;
+use MaquinaDeTuring\domain\Fita;
+use MaquinaDeTuring\domain\Simbolo;
 
 class FitaFactory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MaquinaDeTuring;
+namespace MaquinaDeTuring\domain;
 
 use MaquinaDeTuring\app\utils\Log;
 
@@ -28,6 +28,7 @@ class MaquinaDeTuring implements Log
         } else {
             $this->validar();
         }
+        return true;
     }
 
     private function executarAcao(Acao $acao){

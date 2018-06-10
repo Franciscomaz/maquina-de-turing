@@ -1,6 +1,6 @@
 <?php
 
-namespace MaquinaDeTuring;
+namespace MaquinaDeTuring\domain;
 
 class Estado
 {
