@@ -1,95 +1,17 @@
 {
-  "tabela": {
-    "estadoInicial": {
-      "nome": "->",
-      "deveParar": false,
-      "aceitar": false
-    },
-    "estados": {
-      "->": 0,
-      "q0": 1,
-      "q1": 2,
-      "q2": 3
-    },
-    "simbolos": {
-      "->": 0,
-      "*": 1,
-      " ": 2
-    },
-    "acoes": [
-      {
-        "proximoEstado": {
-          "nome": "->",
-          "deveParar": false,
-          "aceitar": false
-        },
-        "escrever": "->",
-        "direcao": 1,
-        "estado": "->",
-        "simbolo": "->"
-      },
-      {
-        "proximoEstado": {
-          "nome": "q0",
-          "deveParar": false,
-          "aceitar": false
-        },
-        "escrever": "*",
-        "direcao": 1,
-        "estado": "->",
-        "simbolo": " "
-      },
-      {
-        "proximoEstado": {
-          "nome": "->",
-          "deveParar": false,
-          "aceitar": false
-        },
-        "escrever": "*",
-        "direcao": 1,
-        "estado": "->",
-        "simbolo": "*"
-      },
-      {
-        "proximoEstado": {
-          "nome": "q0",
-          "deveParar": false,
-          "aceitar": false
-        },
-        "escrever": "*",
-        "direcao": 1,
-        "estado": "q0",
-        "simbolo": "*"
-      },
-      {
-        "proximoEstado": {
-          "nome": "q1",
-          "deveParar": false,
-          "aceitar": false
-        },
-        "escrever": " ",
-        "direcao": -1,
-        "estado": "q0",
-        "simbolo": " "
-      },
-      {
-        "proximoEstado": {
-          "nome": "q2",
-          "deveParar": true,
-          "aceitar": true
-        },
-        "escrever": " ",
-        "direcao": 1,
-        "estado": "q1",
-        "simbolo": "*"
-      }
-    ]
-  },
+  "transicoes": [
+    "->,->=->,->,1",
+    "q0,*=q0,*,1",
+    "q0,_=q1,*,1",
+    "q1,*=q1,*,1",
+    "q1,_=q2,_,-1",
+    "q2,*=q3,_,1",
+    "q3,q1=q0,*,1"
+  ],
   "fita": [
-    "->",
     "*",
     "*",
-    " ",
+    "_",
     "*",
     "*"
   ]

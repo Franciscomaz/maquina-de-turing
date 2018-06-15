@@ -8,11 +8,12 @@ class Acao
     private $estado;
     private $simbolo;
 
-    public function __construct(Estado $estado, Simbolo $simbolo, int $direcao)
+    public function __construct($acao)
     {
-        $this->direcao = $direcao;
-        $this->estado = $estado;
-        $this->simbolo = $simbolo;
+        $acao = explode(',', $acao);
+        $this->estado = $acao[0];
+        $this->simbolo = $acao[1];
+        $this->direcao = $acao[2];
     }
 
     public function direcao(): int

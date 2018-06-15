@@ -1,8 +1,9 @@
 <?php
 
 use MaquinaDeTuring\app\controllers\MaquinaDeTuringController;
+use PHPUnit\Framework\TestCase;
 
-class MaquinaDeTuringTest extends PHPUnit\Framework\TestCase
+class MaquinaDeTuringTest extends TestCase
 {
     public function testSoma()
     {

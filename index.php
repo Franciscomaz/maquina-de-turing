@@ -14,13 +14,13 @@ $app->get('/', function (Request $request, Response $response, array $args) {
     return $response;
 });
 
-$app->post('/maquina-de-turing', function (Request $request, Response $response, array $args) {
-    return (new MaquinaDeTuringController())->verificarFita($request->getBody());
+$app->post('/verificar', function (Request $request, Response $response, array $args) {
+    return (new MaquinaDeTuringController())->verificarFita($request->getParsedBody());
 });
 
 $app->get('/teste', function (Request $request, Response $response, array $args) {
     $json = file_get_contents(__DIR__.'/test/arquivos/soma.json');
-    $resultado = (new MaquinaDeTuringController())->verificarFita($json);
+    $resultado = (new MaquinaDeTuringController())->verificarFita(json_decode($json, true));
     return '{"jsonRecebido":'.$json
         .',"jsonRetornado":'.$resultado
         .'}';
