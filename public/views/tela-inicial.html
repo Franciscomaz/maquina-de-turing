@@ -8,20 +8,33 @@
 
     <!-- Bootstrap CSS -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
     <script src="http://localhost/maquina-de-turing/public/lib/jquery-3.3.1.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
+
+    <!-- <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
+    <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script> -->
+
     <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script>
 
-    <!--<link rel="stylesheet" href="tela-inicial.css">-->
+    <script type="text/javascript">
 
-    <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
-    <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script>
 
+
+        //  $.ajax({
+        //     type: "GET",
+        //     data: { "teste": "teste" },
+        //     url: "teste",
+        //     success: function(data) {
+        //         console.log(data);
+        //     }
+        // });
+
+
+
+    </script>
 
 </head>
 <body class="jumbotron" >
@@ -32,50 +45,6 @@
 
 <br/><br/>
 
-    <div class="container ">
-        <div class="row">
-            <div class="col-lg-12">
-                <!--<form action="https://localhost/maquina-de-turing/maquina" method="post">-->
-                    <div id="div-form" class="form-group form-control form-control-lg">
-
-                        <div class="form-group ">
-                            <label for="estado">Expressão</label>
-                            <input type="text" class="form-control" id="estado" placeholder="Ex: q1,A=q2,X,D">
-                            <button class="btn btn-primary btn-block" onclick="capturaEstado();" >Enviar</button>
-                        </div>
-
-
-
-                        <!--<div class="form-group ">-->
-                            <!--<label for="simbolo">Simbolos</label>-->
-                            <!--<input type="text" class="form-control" id="simbolo" placeholder="Informe os simbolos">-->
-                        <!--</div>-->
-
-
-
-                        <!--<div class="form-group ">-->
-                            <!--<label for="estadoInicial">Estado Inicial</label>-->
-                            <!--<input type="text" class="form-control" id="estadoInicial" placeholder="Informe o simbolo inicial">-->
-                        <!--</div>-->
-
-
-
-                        <!--<div class="form-group ">-->
-                            <!--<button class="btn btn-primary btn-block" type="submit">Enviar</button>-->
-                        <!--</div>-->
-
-
-                    </div>
-                <!--</form>-->
-            </div>
-
-            <div class="col-lg-12">
-                <button onClick="chamaDiv();" class="btn btn-primary">Inserir</button>
-                <button onClick="animacaoFita(0);" class="btn btn-primary">Calcular</button>
-                <button onClick="iniciaFita();" class="btn btn-primary">Calcular</button>
-                <div class="col-lg-12">
-                    <div id="lineBox" class="lineBox"></div>
-                </div>
 <div class="container ">
     <div class="row">
         <div class="col-lg-12">
@@ -114,11 +83,16 @@
             </div>
         </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</div>
+
+<!--<script-->
+<!--src="https://code.jquery.com/jquery-3.2.1.min.js"-->
+<!--integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="-->
+<!--crossorigin="anonymous"></script>-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

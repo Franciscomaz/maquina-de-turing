@@ -40,8 +40,6 @@ function capturaEstado() {
         estados.adicionarEstado(estadoCapturado.trim());
         console.log(estados.arrayEstados);
         document.getElementById('estado').value = "";
-
-
     } else {
         alert("Errou!")
     }
@@ -49,31 +47,18 @@ function capturaEstado() {
 }
 
 function enviarJson(){
-    // $.post({
-    //     url: 'http://localhost/maquina-de-turing/teste',
-    //     data: estados,
-    //     // type: "POST"
-    // }).done((response) => {
-    //     alert("Deu certo o json!");
-    // }).fail((response) => {
-    //     alert("Deu errado o json!");
-    // });
+
+    console.log("teste"+estados.estados);
+
     $.ajax({
-        type: "POS",
-        data: { "teste": "teste" },
-        url: "http://localhost/maquina-de-turing/teste",
-        success: function(data) {
-            console.log("teste");
-        }
+        url: 'teste', // PRecisamos colocar a pagina correta pro json, ele nao ta recebendo o json
+        data: estados.estados,
+        type: "GET"
+    }).done((response) => {
+        alert(response);
+    }).fail((response) => {
+        alert("Deu errado o json!");
     });
-
-
-
-
-    // var testee = { "testando" :"testando"}
-    // console.log(testee);
-    // $.post( "test.php", { name: "John", time: "2pm" } );
-
 
 
 
