@@ -1,45 +1,29 @@
-class Estados {
-
+class Transicoes {
     constructor() {
-        this.arrayEstados = [];
+        this.arrayTransicoes = [];
     }
 
-    get estados() {
-        return this.arrayEstados;
+    get transicoes() {
+        return this.arrayTransicoes;
     }
 
-    adicionarEstado(estado) {
-        this.arrayEstados.push(estado);
+    adicionarTransicao(transicao) {
+        this.arrayTransicoes.push(transicao);
     }
-    get returnArrayEstados(){
-        var obj = {"array": this.arrayEstados};
-        return obj;
-    }
-
-
-
 }
 
 
-var estados = new Estados();
+let transicoes = new Transicoes();
 
-function capturaEstado() {
-    //Feito para conseguir add mais linha no textarea
-    var objTextArea = document.getElementById('txtArea');
-    while (objTextArea.scrollHeight > objTextArea.offsetHeight){objTextArea.rows += 1;}
-
+function capturaTransicao() {
     //Caputura o valor do estado que vem do html
-    var estadoCapturado = document.getElementById('estado').value;
-    var txtAreaCapturado = document.getElementById('txtArea').value;
-
-    document.getElementById('txtArea').value = txtAreaCapturado+estadoCapturado+"\n";
-
+    let transicaoCapturada = document.getElementById('transicao').value;
+    adicionarNaTabela(transicaoCapturada);
     //Verifica se nao é espaco vazil
-    if (estadoCapturado.trim() !== "") {
-
-        estados.adicionarEstado(estadoCapturado.trim());
-        console.log(estados.arrayEstados);
-        document.getElementById('estado').value = "";
+    if (transicaoCapturada.trim() !== "") {
+        transicoes.adicionarTransicao(transicaoCapturada.trim());
+        console.log(transicoes.arrayTransicoes);
+        document.getElementById('transicao').value = "";
     } else {
         alert("Errou!")
     }
@@ -47,22 +31,37 @@ function capturaEstado() {
 }
 
 function enviarJson(){
-
-    console.log("teste"+estados.estados);
-
+    console.log("teste"+transicoes.transicoes);
     $.ajax({
         url: 'teste', // PRecisamos colocar a pagina correta pro json, ele nao ta recebendo o json
-        data: estados.estados,
+        data: transicoes.transicoes,
         type: "GET"
     }).done((response) => {
         alert(response);
     }).fail((response) => {
         alert("Deu errado o json!");
     });
+}
 
+function adicionarNaTabela(transicao) {
+    let pedacos = transicao.split('=');
+    console.log(pedacos);
+    let rowAndColumn = pedacos[0];
+    let acao = pedacos[1];
 
+    rowAndColumn = rowAndColumn.split(',');
 
+    let row = rowAndColumn[0];
+    let column = rowAndColumn[1];
 
+    if(!contemColuna(column)){
+        addColuna(column);
+    }
+    if(!contemLinha(row)){
+        addLinha(row);
+    }
+
+    editarCelula(row, column, acao)
 }
 
 //

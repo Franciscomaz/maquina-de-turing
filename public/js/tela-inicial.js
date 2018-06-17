@@ -1,10 +1,6 @@
 var posicaoGlobal = 0;
 var relogioVelocidade = 1000;
 
-
-
-
-
 function criaDiv(variavel,teste1) {
     if (variavel === 0) {
         $(document.getElementById('lineBox')).append('<div id="box' + variavel + '" class="box">'+ teste1 +'</div>');
@@ -19,7 +15,6 @@ function chamaDiv() {
         criaDiv(i,teste[i]);
     }
 }
-
 
 function animacaoFita(i) {
     $(document.getElementById('box' + i)).addClass('animacao-jquery');
@@ -55,8 +50,7 @@ function iniciaFita() {
         var acao = fita[i];
         var tamanhoAcao = acao.length;
         for (var j = 0; j < tamanhoAcao; j++) {
-            var aux = fitaMontada+acao[j];
-            fitaMontada = aux;
+            fitaMontada = fitaMontada + acao[j];
         }
     }
     for (var i = 0; i < fitaMontada.length; i ++){

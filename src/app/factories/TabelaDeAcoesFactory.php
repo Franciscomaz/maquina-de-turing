@@ -11,7 +11,7 @@ class TabelaDeAcoesFactory
     public static function criar($dados)
     {
         $tabela = new TabelaDeAcoes(EstadoFactory::criar($dados['estadoInicial']),
-            $dados['estados'],
+            $dados['transicoes'],
             $dados['simbolos']
         );
         foreach ($dados['acoes'] as $acao) {

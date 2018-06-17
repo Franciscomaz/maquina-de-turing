@@ -6,7 +6,7 @@ use MaquinaDeTuring\app\utils\Log;
 
 class MaquinaDeTuring implements Log
 {
-    private $log = '';
+    private $log = [];
     private $fita;
     private $tabelaDeAcoes;
     private $registradorDeEstados;
@@ -20,7 +20,9 @@ class MaquinaDeTuring implements Log
 
     public function validar(): bool
     {
-        $acao = $this->tabelaDeAcoes->proximaAcao($this->registradorDeEstados->estadoAtual(), $this->fita->simboloAtual());
+        $estadoAtual = $this->registradorDeEstados->estadoAtual();
+        $simboloAtual = $this->fita->simboloAtual();
+        $acao = $this->tabelaDeAcoes->proximaAcao($estadoAtual, $simboloAtual);
 
         $this->executarAcao($acao);
 
@@ -33,8 +35,10 @@ class MaquinaDeTuring implements Log
 
     private function executarAcao(Acao $acao)
     {
-        $direcao = $acao->direcao() == -1 ? 0 : 1;
-        $this->log .= $acao->simbolo()->nome().$direcao;
+        $this->log[] = [
+            'escrever' => $acao->simbolo(),
+            'direcao'  => $acao->direcao()
+        ];
         $this->fita->escrever($acao->simbolo());
         $this->fita->mover($acao->direcao());
         $this->registradorDeEstados->adicionar($acao->proximoEstado());
