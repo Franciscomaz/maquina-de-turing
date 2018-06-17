@@ -1,9 +1,12 @@
 var posicaoGlobal = 0;
-var relogioVelocidade = 1000;
+var velocidadeExecucao = 0;
 
 
 
-
+function relogioVelocidade(valor) {
+    velocidadeExecucao = valor;
+    console.log(velocidadeExecucao);
+}
 
 function criaDiv(variavel,teste1) {
     if (variavel === 0) {
@@ -62,16 +65,16 @@ function iniciaFita() {
     for (var i = 0; i < fitaMontada.length; i ++){
         if(fitaMontada[i] == '0'){
             (function (ind) {
-                setTimeout(function () {posicaoGlobal--; moverEsquerda(); }, 1000 + (50 * ind));
+                setTimeout(function () {posicaoGlobal--; moverEsquerda(); }, 1000 + (velocidadeExecucao * ind));
             })(i);
         }
         else if(fitaMontada[i] == '1'){
             (function (ind) {
-                setTimeout(function () {posicaoGlobal++; moverDireita(); }, 1000 + (50 * ind));
+                setTimeout(function () {posicaoGlobal++; moverDireita(); }, 1000 + (velocidadeExecucao* ind));
             })(i);
         }else{
             (function (ind) {
-                setTimeout(function () { alteraValor(fitaMontada[ind]); }, 1000 + (50 * ind));
+                setTimeout(function () { alteraValor(fitaMontada[ind]); }, 1000 + (velocidadeExecucao * ind));
             })(i);
         }
     }
