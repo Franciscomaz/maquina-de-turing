@@ -32,9 +32,8 @@
     <script !src="">
 
         //Carrega certas opcao somente quando a pagina já esta devidamente carregada.
-        $(document).ready(function() {
-            // $('#myModal').modal('show');
-
+        $(document).ready(function () {
+            $('#myModal').modal('show');
 
 
             //Ações para o botao.
@@ -80,7 +79,7 @@
 <div id="myModal" class="modal fade bs-example-modal-sm " tabindex="-1" role="dialog"
      aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm alert alert-success">
-        Aqui será descrito um mini manual de como utilizar a maquina de
+        Aqui será descrito um mini manual de como utilizar a maquina de turing
         <turing></turing>
     </div>
 </div>
@@ -93,86 +92,95 @@
     <div class="row">
         <div class="col-lg-12">
             <div id="div-form" class="form-group form-control form-control-lg">
-            <!--<form action="https://localhost/maquina-de-turing/maquina" method="post">-->
-            <div class="form-group form-control form-control-lg">
-                <div class="form-group ">
-                    <label for="transicao">Expressão:</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="transicao" placeholder="Ex: q1,A=q2,X,D">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Inserir expressão
-                            </button>
-                        </div>
-                    </div>
-                    <div id="container-tabela">
-                        <label for="tabela">Tabela de ações:</label>
-                        <table id="tabela" class="table">
-                            <thead>
-                            <tr>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                <!--<form action="https://localhost/maquina-de-turing/maquina" method="post">-->
+                <div class="form-group form-control form-control-lg">
+                    <div class="form-group ">
+                            <label for="transicao">Expressão:</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="transicao" placeholder="Ex: q1,A=q2,X,D">
+                                <div class="ml-2 mb-1">
+                                    <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Inserir expressão</button>
+                                </div>
+                            </div>
+                            <label for="fitaTransicao">Fita:</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="fitaTransicao" placeholder="Ex: >XXXXXXXXX_XXXXXXXXX">
+                                <div class="ml-2 mb-1">
+                                    <button class="btn btn-primary btn-block" onclick="chamaDiv();">Inserir fita</button>
+                                </div>
+                            </div>
 
+                        <div id="container-tabela">
+                            <label for="tabela">Tabela de ações:</label>
+                            <table id="tabela" class="table">
+                                <thead>
+                                <tr>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
                 </div>
+                <!--</form>-->
             </div>
-            <!--</form>-->
-        </div>
-        <div class="col-lg-12">
-            <div id="div-form" class="form-group form-control form-control-lg">
-                <div class="form-group ">
-                    <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group form-control form-control-lg">
+                    <div class="form-group ">
+                        <div class="row">
 
-                        <br/><br/>
-                        <div style="text-align: center;" class="col-lg-12">
-                            <h4>Velocidade de execução</h4>
+                            <br/><br/>
+                            <div style="text-align: center;" class="col-lg-12">
+                                <h4>Velocidade de execução</h4>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <button id="lento" onClick="relogioVelocidade(1000);" class="btn btn-primary btn-block">
+                                    Lento
+                                </button>
+                            </div>
+                            <div class="col-lg-4">
+                                <button id="medio" onClick="relogioVelocidade(500);" class="btn btn-primary btn-block">
+                                    Médio
+                                </button>
+                            </div>
+                            <div class="col-lg-4">
+                                <button id="rapido" onClick="relogioVelocidade(200);"
+                                        class="btn btn-primary btn-block">Rápido
+                                </button>
+                            </div>
+
+                            <!--<div class="col-lg-6">-->
+                                <!--<button onClick="chamaDiv();" class="btn btn-primary btn-block">Ok, inserir</button>-->
+                            <!--</div>-->
+                            <div class="col-lg-12">
+                                <button onClick="iniciaFita();" class="btn btn-primary btn-block">Iniciar operação</button>
+                            </div>
+
                         </div>
 
-                        <div class="col-lg-4">
-                            <button id="lento" onClick="relogioVelocidade(1000);" class="btn btn-primary btn-block">Lento</button>
-                        </div>
-                        <div class="col-lg-4">
-                            <button id="medio" onClick="relogioVelocidade(500);" class="btn btn-primary btn-block">Médio</button>
-                        </div>
-                        <div class="col-lg-4">
-                            <button id="rapido" onClick="relogioVelocidade(200);"
-                               class="btn btn-primary btn-block">Rápido</button>
-                        </div>
+                        </br>
 
-                        <div class="col-lg-6">
-                            <button onClick="chamaDiv();" class="btn btn-primary btn-block">Ok, inserir</button>
-                        </div>
-                        <div class="col-lg-6">
-                            <button onClick="iniciaFita();" class="btn btn-primary btn-block">Iniciar operação</button>
-                        </div>
 
-                    </div>
-                    </br>
-                    <div class="col-lg-12">
-                        <div id="lineBox" class="lineBox"></div>
+                        <div class="col-lg-12">
+                            <div id="lineBox" class="lineBox"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script>
-    init(['->'], ['#', '->', '_']);
-</script>
-<!--<script-->
-<!--src="https://code.jquery.com/jquery-3.2.1.min.js"-->
-<!--integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="-->
-<!--crossorigin="anonymous"></script>-->
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script>
+        init(['->'], ['#', '->', '_']);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
 </body>
 </html>

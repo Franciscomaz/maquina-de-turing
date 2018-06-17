@@ -1,5 +1,5 @@
 var posicaoGlobal = 0;
-var relogioVelocidade = 1000;
+var velocidadeExecucao = 0;
 
 
 
@@ -17,9 +17,10 @@ function criaDiv(variavel,teste1) {
 }
 
 function chamaDiv() {
-    var teste = 'XXXXXX_XXXXXX'
-    for (var i = 0; i < teste.length; i++) {
-        criaDiv(i,teste[i]);
+    var fitaTransicao = document.getElementById('fitaTransicao').value;
+    console.log("teste");
+    for (var i = 0; i < fitaTransicao.length; i++) {
+        criaDiv(i,fitaTransicao[i]);
     }
 }
 
