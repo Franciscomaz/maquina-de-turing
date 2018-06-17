@@ -33,7 +33,7 @@ class MaquinaDeTuringController
             $fita = new Fita(['->', '*', '*', '_', '*', '*']);
             $maquinaDeTuring = new MaquinaDeTuring(new Estado('->'), $fita, $tabelaDeAcoes);
             print_r($maquinaDeTuring);
-            exit;
+//            exit;
             return json_encode(array_merge(
                     ['isValido' => $maquinaDeTuring->validar()],
                     $maquinaDeTuring->getLog()
