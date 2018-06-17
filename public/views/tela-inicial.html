@@ -19,26 +19,71 @@
 
     <script src="http://localhost/maquina-de-turing/public/js/hash-map.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/tabela.js"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script>
 
-    <script type="text/javascript">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
 
 
-        //  $.ajax({
-        //     type: "GET",
-        //     data: { "teste": "teste" },
-        //     url: "teste",
-        //     success: function(data) {
-        //         console.log(data);
-        //     }
-        // });
+    <script !src="">
+
+        //Carrega certas opcao somente quando a pagina já esta devidamente carregada.
+        $(document).ready(function() {
+            // $('#myModal').modal('show');
+
+
+
+            //Ações para o botao.
+            var botao = document.getElementById('lento');
+            botao.addEventListener('click', function () {
+                $(document.getElementById('lento')).removeClass('btn-primary');
+                $(document.getElementById('lento')).addClass('btn-success');
+                $(document.getElementById('medio')).addClass('btn-primary');
+                $(document.getElementById('medio')).removeClass('btn-success');
+                $(document.getElementById('rapido')).addClass('btn-primary');
+                $(document.getElementById('rapido')).removeClass('btn-success');
+            });
+
+            var botao = document.getElementById('medio');
+            botao.addEventListener('click', function () {
+                $(document.getElementById('lento')).addClass('btn-primary');
+                $(document.getElementById('lento')).removeClass('btn-success');
+                $(document.getElementById('rapido')).addClass('btn-primary');
+                $(document.getElementById('rapido')).removeClass('btn-success');
+                $(document.getElementById('medio')).removeClass('btn-primary');
+                $(document.getElementById('medio')).addClass('btn-success');
+            });
+            var botao = document.getElementById('rapido');
+            botao.addEventListener('click', function () {
+                $(document.getElementById('lento')).addClass('btn-primary');
+                $(document.getElementById('lento')).removeClass('btn-success');
+                $(document.getElementById('medio')).addClass('btn-primary');
+                $(document.getElementById('medio')).removeClass('btn-success');
+                $(document.getElementById('rapido')).removeClass('btn-primary');
+                $(document.getElementById('rapido')).addClass('btn-success');
+            });
+
+
+        });
 
 
     </script>
 
 </head>
 <body class="jumbotron">
+
+<!--Modal para fazer uma breve introdução de como deve ser manipulado a maquina-->
+<div id="myModal" class="modal fade bs-example-modal-sm " tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm alert alert-success">
+        Aqui será descrito um mini manual de como utilizar a maquina de
+        <turing></turing>
+    </div>
+</div>
 
 <div id="cabecalho">
     <h3>Máquina de Turing</h3>
@@ -48,6 +93,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div id="div-form" class="form-group form-control form-control-lg">
+            <!--<form action="https://localhost/maquina-de-turing/maquina" method="post">-->
+            <div class="form-group form-control form-control-lg">
                 <div class="form-group ">
                     <label for="transicao">Expressão:</label>
                     <div class="input-group mb-3">
@@ -77,12 +124,30 @@
             <div id="div-form" class="form-group form-control form-control-lg">
                 <div class="form-group ">
                     <div class="row">
+
+                        <br/><br/>
+                        <div style="text-align: center;" class="col-lg-12">
+                            <h4>Velocidade de execução</h4>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <button id="lento" onClick="relogioVelocidade(1000);" class="btn btn-primary btn-block">Lento</button>
+                        </div>
+                        <div class="col-lg-4">
+                            <button id="medio" onClick="relogioVelocidade(500);" class="btn btn-primary btn-block">Médio</button>
+                        </div>
+                        <div class="col-lg-4">
+                            <button id="rapido" onClick="relogioVelocidade(200);"
+                               class="btn btn-primary btn-block">Rápido</button>
+                        </div>
+
                         <div class="col-lg-6">
                             <button onClick="chamaDiv();" class="btn btn-primary btn-block">Ok, inserir</button>
                         </div>
                         <div class="col-lg-6">
-                            <button onClick="enviarJson();" class="btn btn-primary btn-block">Iniciar operação</button>
+                            <button onClick="iniciaFita();" class="btn btn-primary btn-block">Iniciar operação</button>
                         </div>
+
                     </div>
                     </br>
                     <div class="col-lg-12">
