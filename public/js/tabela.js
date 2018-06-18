@@ -1,7 +1,7 @@
 let _linhas = new ArrayAssociativo();
 let _colunas = new ArrayAssociativo();
 
-function init(linhas, colunas) {
+function initTable(linhas, colunas) {
     initColunas(colunas);
     initLinhas(linhas);
 }
@@ -77,7 +77,7 @@ function criarCelula() {
 }
 
 function criarDiv(value) {
-    return '<div contenteditable="true">' + value + '</div>'
+    return '<div contenteditable="true" class="single-line">' + value + '</div>'
 }
 
 function contemColuna(value) {
