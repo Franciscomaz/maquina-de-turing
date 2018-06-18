@@ -35,11 +35,11 @@ function enviarJson(){
     $.ajax({
         url: 'teste', // PRecisamos colocar a pagina correta pro json, ele nao ta recebendo o json
         data: transicoes.transicoes,
-        type: "GET"
+        type: "POST"
     }).done((response) => {
         alert(response);
     }).fail((response) => {
-        alert("Deu errado o json!");
+        alert("Deu errado o json!"+ "  "+ response);
     });
 }
 
