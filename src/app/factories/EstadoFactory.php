@@ -7,8 +7,6 @@ use MaquinaDeTuring\domain\EstadoDeParada;
 
 class EstadoFactory
 {
-
-
     public static function criar($estado)
     {
         if($estado == Estado::ESTADO_DE_ACEITACAO){

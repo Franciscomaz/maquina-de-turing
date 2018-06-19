@@ -2,12 +2,8 @@
 <html lang="pt-br">
 <head>
     <title>Máquina de Turing</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-
     <script src="http://localhost/maquina-de-turing/public/lib/jquery-3.3.1.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -15,11 +11,7 @@
     <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-
-    <!-- <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
-    <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script> -->
-
+    <script src="http://localhost/maquina-de-turing/public/js/fita.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/hash-map.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/tabela.js"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
@@ -114,7 +106,7 @@
                                 <button class="btn btn-danger btn-block" onclick="capturaTransicao();">Pausar</button>
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Resetar</button>
+                                <button class="btn btn-primary btn-block" onclick="enviarJson();">Resetar</button>
                             </div>
                             <!--<div>
                                 <button onClick="criarBox();" class="btn btn-primary btn-block">Inserir celula</button>

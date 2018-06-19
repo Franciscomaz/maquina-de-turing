@@ -30,10 +30,16 @@ function capturaTransicao() {
 
 }
 
-function enviarJson(){
+function enviarJson() {
     let json = {
-        'fita': getFita(),
-        'transicoes': transicoes.transicoes
+        'fita': ['->', '*', '*', '_', '*', '*',],
+        'transicoes': ["->,->=q0,->,D",
+            "q0,*=q0,*,D",
+            "q0,_=q1,*,D",
+            "q1,*=q1,*,D",
+            "q1,_=q2,_,E",
+            "q2,*=$,_,D"
+        ]
     };
     console.log(json);
     $.ajax({
@@ -41,9 +47,10 @@ function enviarJson(){
         data: json,
         type: "POST"
     }).done((response) => {
-        console.log(response.fita);
+        console.log(response);
+        iniciarAnimacao(JSON.parse(response)['fita']);
     }).fail((response) => {
-        console.log("Deu errado o json!"+ "  "+ response);
+        console.log("Deu errado o json!" + "  " + response);
     });
 }
 
@@ -58,10 +65,10 @@ function adicionarNaTabela(transicao) {
     let row = rowAndColumn[0];
     let column = rowAndColumn[1];
 
-    if(!contemColuna(column)){
+    if (!contemColuna(column)) {
         addColuna(column);
     }
-    if(!contemLinha(row)){
+    if (!contemLinha(row)) {
         addLinha(row);
     }
 
