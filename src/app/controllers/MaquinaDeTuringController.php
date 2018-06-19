@@ -18,7 +18,6 @@ class MaquinaDeTuringController
             $transicoes = TransicaoFactory::criar($json['transicoes']);
             $tabelaDeAcoes = TabelaDeAcoesFactory::criar($transicoes);
             $maquinaDeTuring = new MaquinaDeTuring(EstadoFactory::criarInicial(), $fita, $tabelaDeAcoes);
-
             return json_encode(array_merge(
                     ['isValido' => $maquinaDeTuring->validar()],
                     $maquinaDeTuring->getLog()

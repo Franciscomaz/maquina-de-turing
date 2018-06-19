@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
 
     <!-- <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script> -->
@@ -64,15 +67,6 @@
 </head>
 <body class="jumbotron">
 
-<!--Modal para fazer uma breve introdução de como deve ser manipulado a maquina-->
-<div id="myModal" class="modal fade bs-example-modal-sm " tabindex="-1" role="dialog"
-     aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm alert alert-success">
-        Aqui será descrito um mini manual de como utilizar a maquina de turing
-        <turing></turing>
-    </div>
-</div>
-
 <div id="cabecalho">
     <h3>Máquina de Turing</h3>
 </div>
@@ -91,6 +85,7 @@
                                 <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Inserir
                                     expressão
                                 </button>
+
                             </div>
                         </div>
                         <div id="container-tabela">
@@ -111,7 +106,9 @@
                     <div id="controles" class="row justify-content-between">
                         <div id="controle-fita" class="col-4 d-flex justify-content-around">
                             <div>
-                                <button class="btn btn-success btn-block" onclick="capturaTransicao();">Iniciar</button>
+                                <button class="btn btn-danger btn-addon">
+                                    <i class="fa fa-close"></i>
+                                </button>
                             </div>
                             <div>
                                 <button class="btn btn-danger btn-block" onclick="capturaTransicao();">Pausar</button>
