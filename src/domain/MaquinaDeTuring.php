@@ -35,7 +35,7 @@ class MaquinaDeTuring implements Log
     private function executarAcao(Acao $acao)
     {
         $this->log[] = [
-            'escrever' => $acao->simbolo(),
+            'escrever' => $acao->simbolo()->nome(),
             'direcao'  => $acao->direcao()
         ];
         $this->fita->escrever($acao->simbolo());

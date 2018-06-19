@@ -41,9 +41,9 @@ function enviarJson(){
         data: json,
         type: "POST"
     }).done((response) => {
-        alert(response);
+        console.log(response.fita);
     }).fail((response) => {
-        alert("Deu errado o json!"+ "  "+ response);
+        console.log("Deu errado o json!"+ "  "+ response);
     });
 }
 
