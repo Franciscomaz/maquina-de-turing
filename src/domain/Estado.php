@@ -4,6 +4,9 @@ namespace MaquinaDeTuring\domain;
 
 class Estado
 {
+    const ESTADO_DE_ACEITACAO = '$';
+    const ESTADO_DE_REJEICAO = '!$';
+
     private $nome;
 
     public function __construct(string $nome)

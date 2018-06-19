@@ -22,20 +22,13 @@
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script>
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
-
-
     <script>
-
         //Carrega certas opcao somente quando a pagina já esta devidamente carregada.
         $(document).ready(function () {
             $('#myModal').modal('show');
-
-
             //Ações para o botao.
             var botao = document.getElementById('lento');
             botao.addEventListener('click', function () {
@@ -65,11 +58,7 @@
                 $(document.getElementById('rapido')).removeClass('btn-primary');
                 $(document.getElementById('rapido')).addClass('btn-success');
             });
-
-
         });
-
-
     </script>
 
 </head>
@@ -95,13 +84,15 @@
                 <!--<form action="https://localhost/maquina-de-turing/maquina" method="post">-->
                 <div class="form-group form-control form-control-lg">
                     <div class="form-group ">
-                            <label for="transicao">Expressão:</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="transicao" placeholder="Ex: q1,A=q2,X,D">
-                                <div class="ml-2 mb-1">
-                                    <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Inserir expressão</button>
-                                </div>
+                        <label for="transicao">Expressão:</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="transicao" placeholder="Ex: q1,A=q2,X,D">
+                            <div class="ml-2 mb-1">
+                                <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Inserir
+                                    expressão
+                                </button>
                             </div>
+                        </div>
                         <div id="container-tabela">
                             <label for="tabela">Tabela de ações:</label>
                             <table id="tabela" class="table">
@@ -116,57 +107,38 @@
                         </div>
                     </div>
                 </div>
-                <!--</form>-->
-            </div>
-            <div class="col-lg-12">
-                <div class="form-group form-control form-control-lg">
-                    <div class="form-group ">
-                        <div class="row">
-
-                            <br/><br/>
-                            <div style="text-align: center;" class="col-lg-12">
-                                <h4>Velocidade de execução</h4>
+                <div id="fita-container" class="form-group form-control form-control-lg">
+                    <div id="controles" class="row justify-content-between">
+                        <div id="controle-fita" class="col-4 d-flex justify-content-around">
+                            <div>
+                                <button class="btn btn-success btn-block" onclick="capturaTransicao();">Iniciar</button>
                             </div>
-
-                            <div class="col-lg-4">
-                                <button id="lento" onClick="relogioVelocidade(1000);" class="btn btn-primary btn-block">
-                                    Lento
-                                </button>
+                            <div>
+                                <button class="btn btn-danger btn-block" onclick="capturaTransicao();">Pausar</button>
                             </div>
-                            <div class="col-lg-4">
-                                <button id="medio" onClick="relogioVelocidade(500);" class="btn btn-primary btn-block">
-                                    Médio
-                                </button>
+                            <div>
+                                <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Resetar</button>
                             </div>
-                            <div class="col-lg-4">
-                                <button id="rapido" onClick="relogioVelocidade(200);"
-                                        class="btn btn-primary btn-block">Rápido
-                                </button>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <button onClick="enviarJson();" class="btn btn-primary btn-block">TESTE ENVIA JSON</button>
-                            </div>
-                            <div class="col-lg-12">
-                                <button onClick="iniciaFita();" class="btn btn-primary btn-block">Iniciar operação</button>
-                            </div>
-
+                            <!--<div>
+                                <button onClick="criarBox();" class="btn btn-primary btn-block">Inserir celula</button>
+                            </div>-->
                         </div>
-
-                        </br>
-
-
-                        <div class="col-lg-12">
-                            <button onClick="criarBox();" class="btn btn-primary btn-block">Inserir celula</button>
-                            <div id="lineBox" class="lineBox"></div>
+                        <div id="controle-velocidade" class="col-4">
+                            <label class="radio-inline"><input type="radio" name="optradio">Lento</label>
+                            <label class="radio-inline"><input type="radio" name="optradio">Médio</label>
+                            <label class="radio-inline"><input type="radio" name="optradio">Rápido</label>
                         </div>
+                    </div>
+                    <div id="fita" class="mt-4">
+                        <div id="lineBox" class="lineBox"></div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <script>
-        initFita(['->', '*', '*', '_', '*', '*']);
+        initFita(['->', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_']);
         initTable(['->'], ['#', '->', '_']);
         console.log(getFita());
     </script>

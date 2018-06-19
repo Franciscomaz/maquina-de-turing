@@ -18,15 +18,6 @@ class Acao
         $this->direcao = $this->converterDirecaoParaInt($acao[2]);
     }
 
-    public function converterDirecaoParaInt($direcao)
-    {
-        if ($direcao == 'D'){
-            return 1;
-        } else {
-            return -1;
-        }
-    }
-
     public function direcao(): int
     {
         return $this->direcao;
@@ -40,5 +31,14 @@ class Acao
     public function proximoEstado(): Estado
     {
         return $this->estado;
+    }
+
+    private function converterDirecaoParaInt($direcao)
+    {
+        if ($direcao == 'D'){
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }
