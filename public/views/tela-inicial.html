@@ -102,14 +102,6 @@
                                     <button class="btn btn-primary btn-block" onclick="capturaTransicao();">Inserir expressão</button>
                                 </div>
                             </div>
-                            <label for="fitaTransicao">Fita:</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="fitaTransicao" placeholder="Ex: >XXXXXXXXX_XXXXXXXXX">
-                                <div class="ml-2 mb-1">
-                                    <button class="btn btn-primary btn-block" onclick="chamaDiv();">Inserir fita</button>
-                                </div>
-                            </div>
-
                         <div id="container-tabela">
                             <label for="tabela">Tabela de ações:</label>
                             <table id="tabela" class="table">
@@ -165,6 +157,7 @@
 
 
                         <div class="col-lg-12">
+                            <button onClick="criarBox();" class="btn btn-primary btn-block">Inserir celula</button>
                             <div id="lineBox" class="lineBox"></div>
                         </div>
                     </div>
@@ -173,7 +166,9 @@
         </div>
     </div>
     <script>
+        initFita(['->', '*', '*', '_', '*', '*']);
         initTable(['->'], ['#', '->', '_']);
+        console.log(getFita());
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

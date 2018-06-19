@@ -2,6 +2,8 @@
 
 namespace MaquinaDeTuring\domain;
 
+use MaquinaDeTuring\app\factories\EstadoFactory;
+
 class Acao
 {
     private $direcao;
@@ -11,9 +13,18 @@ class Acao
     public function __construct($acao)
     {
         $acao = explode(',', $acao);
-        $this->estado = $acao[0];
-        $this->simbolo = $acao[1];
-        $this->direcao = $acao[2];
+        $this->estado = EstadoFactory::criar($acao[0]);
+        $this->simbolo = new Simbolo($acao[1]);
+        $this->direcao = $this->converterDirecaoParaInt($acao[2]);
+    }
+
+    public function converterDirecaoParaInt($direcao)
+    {
+        if ($direcao == 'D'){
+            return 1;
+        } else {
+            return -1;
+        }
     }
 
     public function direcao(): int

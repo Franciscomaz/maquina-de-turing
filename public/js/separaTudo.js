@@ -31,10 +31,14 @@ function capturaTransicao() {
 }
 
 function enviarJson(){
-    console.log("teste"+transicoes.transicoes);
+    let json = {
+        'fita': getFita(),
+        'transicoes': transicoes.transicoes
+    };
+    console.log(json);
     $.ajax({
-        url: 'teste', // PRecisamos colocar a pagina correta pro json, ele nao ta recebendo o json
-        data: transicoes.transicoes,
+        url: 'verificar', // PRecisamos colocar a pagina correta pro json, ele nao ta recebendo o json
+        data: json,
         type: "POST"
     }).done((response) => {
         alert(response);

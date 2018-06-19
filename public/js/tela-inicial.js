@@ -2,17 +2,19 @@ var posicaoGlobal = 0;
 var velocidadeExecucao = 0;
 
 
+function initFita(fita) {
+    for (var i = 0; i < fita.length; i++) {
+        criaDiv(i, fita[i]);
+    }
+}
+
 function relogioVelocidade(valor) {
     velocidadeExecucao = valor;
     console.log(velocidadeExecucao);
 }
 
 function criaDiv(id, conteudoDaDiv) {
-    if (id === 0) {
-        $(document.getElementById('lineBox')).append('<div contenteditable="true" id="box' + id + '" class="box">' + conteudoDaDiv + '</div>');
-    } else {
-        $(document.getElementById('lineBox')).append('<div contenteditable="true" id="box' + id + '" class="box">' + conteudoDaDiv + '</div>');
-    }
+    $(document.getElementById('lineBox')).append('<div contenteditable="true" id="box' + id + '" class="box">' + conteudoDaDiv + '</div>');
 }
 
 function chamaDiv() {
@@ -85,7 +87,21 @@ function iniciaFita() {
             })(i);
         }
     }
+}
 
+function getFita() {
+    var fita = document.getElementById('lineBox');
+    var celulas = [];
+    for(var i = 0; i<fita.children.length; i++){
+        celulas.push(fita.children[i].textContent);
+    }
+    return celulas;
+}
+
+function criarBox() {
+    var fita = document.getElementById('lineBox');
+    let tamanhoDaFita = fita.children.length;
+    criaDiv(tamanhoDaFita, '_');
 }
 
 // // if()

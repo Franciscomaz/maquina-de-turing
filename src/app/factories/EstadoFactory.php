@@ -9,10 +9,10 @@ class EstadoFactory
 {
     public static function criar($estado)
     {
-        if((boolean)$estado['deveParar']){
-            return new EstadoDeParada($estado['nome'], $estado['aceitar']);
+        if($estado == '$'){
+            return new EstadoDeParada($estado, true);
         } else {
-            return new Estado($estado['nome']);
+            return new Estado($estado);
         }
     }
 }

@@ -25,7 +25,6 @@ class MaquinaDeTuring implements Log
         $acao = $this->tabelaDeAcoes->proximaAcao($estadoAtual, $simboloAtual);
 
         $this->executarAcao($acao);
-
         if ($acao->proximoEstado()->deveParar()) {
             return $acao->proximoEstado()->isValido();
         } else {

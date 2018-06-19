@@ -4,7 +4,7 @@ namespace MaquinaDeTuring\domain;
 
 class Simbolo
 {
-    const VAZIO = ' ';
+    const VAZIO = '_';
     private $nome;
 
     public function __construct(string $nome)
