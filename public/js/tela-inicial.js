@@ -1,36 +1,65 @@
-var velocidadeExecucao = 0;
+let transicoes = [];
 
-
-function initFita(fita) {
-    for (var i = 0; i < fita.length; i++) {
-        criaDiv(i, fita[i]);
+function capturaTransicao() {
+    let transicao = document.getElementById('transicao').value;
+    transicao = transicao.trim();
+    if (transicao !== "") {
+        adicionarNaTabela(transicao);
+        transicoes.push(transicao);
+        document.getElementById('transicao').value = "";
+    } else {
+        alert("Informe uma transição válida!")
     }
 }
 
-function relogioVelocidade(valor) {
-    velocidadeExecucao = valor;
-    console.log(velocidadeExecucao);
+function enviarJson(callback) {
+    let json = {
+        'fita': getFita(),
+        'transicoes': [
+            "->,->=q0,->,D",
+            "q0,*=q0,*,D",
+            "q0,_=q1,*,D",
+            "q1,*=q1,*,D",
+            "q1,_=q2,_,E",
+            "q2,*=q1,_,D"
+        ]
+    };
+    console.log(json);
+    $.ajax({
+        url: 'verificar',
+        data: json,
+        type: "POST"
+    }).done((response) => {
+        callback(JSON.parse(response)['fita']);
+    }).fail((response) => {
+        console.log(response);
+    });
 }
 
-function criaDiv(id, conteudoDaDiv) {
-    $(document.getElementById('lineBox')).append('<div contenteditable="true" id="box' + id + '" class="box">' + conteudoDaDiv + '</div>');
-}
+function adicionarNaTabela(transicao) {
+    let pedacos = transicao.split('=');
+    console.log(pedacos);
+    let rowAndColumn = pedacos[0];
+    let acao = pedacos[1];
 
-function chamaDiv() {
-    var fitaTransicao = document.getElementById('fitaTransicao').value;
-    console.log("teste");
-    for (var i = 0; i < fitaTransicao.length; i++) {
-        criaDiv(i, fitaTransicao[i]);
+    rowAndColumn = rowAndColumn.split(',');
+
+    let row = rowAndColumn[0];
+    let column = rowAndColumn[1];
+
+    if (!contemColuna(column)) {
+        addColuna(column);
     }
+    if (!contemLinha(row)) {
+        addLinha(row);
+    }
+
+    editarCelula(row, column, acao)
 }
 
-function criarBox() {
-    var fita = document.getElementById('lineBox');
-    let tamanhoDaFita = fita.children.length;
-    criaDiv(tamanhoDaFita, '_');
-}
-
-// // if()
-// (function (ind) {
-//     setTimeout(function () { moverDireita(ind); }, 1000 + (1000 * ind));
-// })(i);
+//
+// var string  = "Casa com a palavra exemplo",
+//     pattern = {},
+//     regexp  = /q[0-9]+,[a-zA-Z]+=q[0-9]+,[a-zA-Z]+,[d|e]/;
+//
+// console.log(/q[0-9]+,[a-zA-Z]+=q[0-9]+,[a-zA-Z]+,[d|e]/).test("q1,a=q1,a,daa"));

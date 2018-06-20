@@ -5,60 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="http://localhost/maquina-de-turing/public/lib/jquery-3.3.1.js"></script>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="http://localhost/maquina-de-turing/public/js/fita.js"></script>
-    <script src="http://localhost/maquina-de-turing/public/js/hash-map.js"></script>
+    <script src="http://localhost/maquina-de-turing/public/js/animacao.js"></script>
+    <script src="http://localhost/maquina-de-turing/public/js/array-associativo.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/tabela.js"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <script src="http://localhost/maquina-de-turing/public/js/tela-inicial.js"></script>
-    <script src="http://localhost/maquina-de-turing/public/js/separaTudo.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost/maquina-de-turing/public/css/tela-inicial.css">
-    <script>
-        //Carrega certas opcao somente quando a pagina já esta devidamente carregada.
-        $(document).ready(function () {
-            $('#myModal').modal('show');
-            //Ações para o botao.
-            var botao = document.getElementById('lento');
-            botao.addEventListener('click', function () {
-                $(document.getElementById('lento')).removeClass('btn-primary');
-                $(document.getElementById('lento')).addClass('btn-success');
-                $(document.getElementById('medio')).addClass('btn-primary');
-                $(document.getElementById('medio')).removeClass('btn-success');
-                $(document.getElementById('rapido')).addClass('btn-primary');
-                $(document.getElementById('rapido')).removeClass('btn-success');
-            });
-
-            var botao = document.getElementById('medio');
-            botao.addEventListener('click', function () {
-                $(document.getElementById('lento')).addClass('btn-primary');
-                $(document.getElementById('lento')).removeClass('btn-success');
-                $(document.getElementById('rapido')).addClass('btn-primary');
-                $(document.getElementById('rapido')).removeClass('btn-success');
-                $(document.getElementById('medio')).removeClass('btn-primary');
-                $(document.getElementById('medio')).addClass('btn-success');
-            });
-            var botao = document.getElementById('rapido');
-            botao.addEventListener('click', function () {
-                $(document.getElementById('lento')).addClass('btn-primary');
-                $(document.getElementById('lento')).removeClass('btn-success');
-                $(document.getElementById('medio')).addClass('btn-primary');
-                $(document.getElementById('medio')).removeClass('btn-success');
-                $(document.getElementById('rapido')).removeClass('btn-primary');
-                $(document.getElementById('rapido')).addClass('btn-success');
-            });
-        });
-    </script>
-
 </head>
 <body class="jumbotron">
-
 <div id="cabecalho">
     <h3>Máquina de Turing</h3>
 </div>
@@ -90,32 +52,32 @@
                                 <tbody>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
                 <div id="fita-container" class="form-group form-control form-control-lg">
                     <div id="controles" class="row justify-content-between">
-                        <div id="controle-fita" class="col-4 d-flex justify-content-around">
+                        <div id="controle-fita" class="col-4 d-flex ">
                             <div>
-                                <button class="btn btn-danger btn-addon">
-                                    <i class="fa fa-close"></i>
-                                </button>
+                                <button class="btn btn-success btn-block" onclick="iniciarAnimacao();">Iniciar</button>
+                            </div>
+                            <div class="divider">
                             </div>
                             <div>
-                                <button class="btn btn-danger btn-block" onclick="capturaTransicao();">Pausar</button>
+                                <button class="btn btn-danger btn-block" onclick="resetarAnimacao();">Resetar</button>
+                            </div>
+                            <div class="divider">
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-block" onclick="enviarJson();">Resetar</button>
+                                <button class="btn btn-primary btn-block" onclick="adicionarCelula('_');">Adicionar Celula</button>
                             </div>
-                            <!--<div>
-                                <button onClick="criarBox();" class="btn btn-primary btn-block">Inserir celula</button>
-                            </div>-->
                         </div>
                         <div id="controle-velocidade" class="col-4">
-                            <label class="radio-inline"><input type="radio" name="optradio">Lento</label>
-                            <label class="radio-inline"><input type="radio" name="optradio">Médio</label>
-                            <label class="radio-inline"><input type="radio" name="optradio">Rápido</label>
+                            <label class="radio-inline"><input id="lento" type="radio" name="optradio">Lento</label>
+                            <div class="divider"></div>
+                            <label class="radio-inline"><input id="medio" type="radio" name="optradio" checked="checked">Médio</label>
+                            <div class="divider"></div>
+                            <label class="radio-inline"><input id="rapido" type="radio" name="optradio">Rápido</label>
                         </div>
                     </div>
                     <div id="fita" class="mt-4">
@@ -127,9 +89,8 @@
         </div>
     </div>
     <script>
-        initFita(['->', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_']);
+        initFita(['->', '*', '*', '_', '*', '*', '*', '_']);
         initTable(['->'], ['#', '->', '_']);
-        console.log(getFita());
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

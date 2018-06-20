@@ -1,15 +1,11 @@
 #cabecalho{
     text-align: center;
-    font-family: SansSerif;
+    font-family: SansSerif, serif;
 }
 
 #lineBox{
     /* border: 1px solid red; */
     height: 50px;
-}
-
-#controle-velocidade{
-
 }
 
 .box{
@@ -28,6 +24,12 @@
 
 .animacao-jquery{
     border: 3px solid red;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }
 
 [contenteditable="true"].single-line {

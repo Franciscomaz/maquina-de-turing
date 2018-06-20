@@ -3,6 +3,7 @@
 namespace MaquinaDeTuring\app\controllers;
 
 use Exception;
+use MaquinaDeTuring\app\exception\MaquinaDeTuringException;
 use MaquinaDeTuring\app\factories\EstadoFactory;
 use MaquinaDeTuring\app\factories\FitaFactory;
 use MaquinaDeTuring\app\factories\TabelaDeAcoesFactory;
@@ -23,8 +24,10 @@ class MaquinaDeTuringController
                     $maquinaDeTuring->getLog()
                 )
             );
-        } catch (Exception $exception) {
-            return $exception->getTraceAsString();
+        } catch (MaquinaDeTuringException $exception) {
+            echo $exception->getMessage();
+        } catch (Exception $exception){
+            echo 'Erro desconhecido';
         }
     }
 }

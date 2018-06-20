@@ -7,7 +7,13 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
 
-$app = new \Slim\App;
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
+$c = new \Slim\Container($configuration);
+$app = new \Slim\App($c);
 
 $app->get('/', function (Request $request, Response $response, array $args) {
     $response->getBody()->write(file_get_contents(__DIR__ . '/public/views/tela-inicial.html'));
@@ -29,9 +35,9 @@ $app->get('/teste', function (Request $request, Response $response, array $args)
 try {
     $app->run();
 } catch (\Slim\Exception\MethodNotAllowedException $e) {
-    echo $e->getTraceAsString();
+    echo $e->getMessage();
 } catch (\Slim\Exception\NotFoundException $e) {
-    echo $e->getTraceAsString();
+    echo $e->getMessage();
 } catch (Exception $e) {
-    echo $e->getTraceAsString();
+    echo $e->getMessage();
 }

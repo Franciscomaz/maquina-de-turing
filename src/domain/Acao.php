@@ -15,7 +15,7 @@ class Acao
         $acao = explode(',', $acao);
         $this->estado = EstadoFactory::criar($acao[0]);
         $this->simbolo = new Simbolo($acao[1]);
-        $this->direcao = $this->converterDirecaoParaInt($acao[2]);
+        $this->direcao = $this->converterDirecaoParaInteiro($acao[2]);
     }
 
     public function direcao(): int
@@ -33,7 +33,7 @@ class Acao
         return $this->estado;
     }
 
-    private function converterDirecaoParaInt($direcao)
+    private function converterDirecaoParaInteiro($direcao)
     {
         if ($direcao == 'D'){
             return 1;
