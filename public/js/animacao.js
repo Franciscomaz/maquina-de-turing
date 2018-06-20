@@ -53,10 +53,10 @@ function iniciarAnimacao() {
         let valido = $('#valido');
         if (isValido) {
             valido.html('Fita válida.');
-            valido.addClass('success')
+            valido.addClass('alert alert-success')
         } else {
             valido.html('Fita inválida.');
-            valido.addClass('danger')
+            valido.addClass('alert alert-danger')
         }
     }
 }

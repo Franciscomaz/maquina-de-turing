@@ -20,7 +20,7 @@ function enviarJson(callback) {
             "q0,_=q1,*,D",
             "q1,*=q1,*,D",
             "q1,_=q2,_,E",
-            "q2,*=!$,_,D"
+            "q2,*=$,_,D"
         ]
     };
     $.ajax({
