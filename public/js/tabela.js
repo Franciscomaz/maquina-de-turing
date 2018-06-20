@@ -64,6 +64,14 @@ function getTableBody() {
     return document.getElementById('tabela').children[1];
 }
 
+function getHeaderValue(index) {
+    return getTableHeader().children[0].children[index].children[0].textContent
+}
+
+function getBodyValue(index) {
+    return getTableBody().children[index].children[0].children[0].textContent
+}
+
 function criarHeader(value) {
     let th = document.createElement('th');
     th.innerHTML = criarDiv(value);
